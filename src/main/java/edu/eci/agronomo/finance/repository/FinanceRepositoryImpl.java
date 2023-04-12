@@ -48,10 +48,10 @@ public class FinanceRepositoryImpl implements FinanceRepository {
     public Finance update(String id, FinanceDto financeDto) {
         Query query = new Query(Criteria.where("id").is(id));
         Update update = new Update()
-                .set("idRanch", financeDto.getIdRanch())
-                .set("name", financeDto.getName())
-                .set("type", financeDto.getType())
-                .set("gender", financeDto.getGender());
+                .set("idAnimal", financeDto.getIdAnimal())
+                .set("moneyProduced", financeDto.getMoneyProduced())
+                .set("moneySpent", financeDto.getMoneySpent())
+                .set("profitability", financeDto.getProfitability());
         mongoTemplate.updateFirst(query, update, Finance.class);
         return findById(id).orElse(null);
     }

@@ -1,91 +1,51 @@
 package edu.eci.agronomo.finance.model.finance;
 
 public class FinanceDto {
-    private String idRanch;
-    private String name;
-    private String type;
-    private String gender;
-    private String age;
-    private String stage;
-    private String weight;
-    private String race;
+    private String idAnimal;
+    private float moneyProduced;
+    private float moneySpent;
+    private float profitability;
 
-    public FinanceDto(String idRanch, String name, String type, String gender, String age, String stage, String weight, String race) {
-        this.idRanch = idRanch;
-        this.name = name;
-        this.type = type;
-        this.gender = gender;
-        this.age = age;
-        this.stage = stage;
-        this.weight = weight;
-        this.race = race;
+    public FinanceDto(String idAnimal, float moneyProduced, float moneySpent) {
+        this.idAnimal = idAnimal;
+        this.moneyProduced = moneyProduced;
+        this.moneySpent = moneySpent;
+        this.profitability = ((moneyProduced-moneySpent)*100)/moneyProduced;
     }
 
     public FinanceDto() {
 
     }
 
-    public String getIdRanch() {
-        return idRanch;
+    public String getIdAnimal() {
+        return idAnimal;
     }
 
-    public void setIdRanch(String idRanch) {
-        this.idRanch = idRanch;
+    public void setIdAnimal(String idAnimal) {
+        this.idAnimal = idAnimal;
     }
 
-    public String getName() {
-        return name;
+    public float getMoneyProduced() {
+        return moneyProduced;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMoneyProduced(float moneyProduced) {
+        this.moneyProduced = moneyProduced;
     }
 
-    public String getType() {
-        return type;
+    public float getMoneySpent() {
+        return moneySpent;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setMoneySpent(float moneySpent) {
+        this.moneySpent = moneySpent;
     }
 
-    public String getGender() {
-        return gender;
+    public float getProfitability() {
+        return ((this.moneyProduced-this.moneySpent)*100)/this.moneyProduced;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
-
-    public String getStage() {
-        return stage;
-    }
-
-    public void setStage(String stage) {
-        this.stage = stage;
-    }
-
-    public String getWeight() {
-        return weight;
-    }
-
-    public void setWeight(String weight) {
-        this.weight = weight;
-    }
-
-    public String getRace() {
-        return race;
-    }
-
-    public void setRace(String race) {
-        this.race = race;
+    public void setProfitability(float profitability) {
+        this.profitability = profitability;
     }
 }
