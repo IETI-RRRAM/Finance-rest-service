@@ -11,6 +11,8 @@ public interface FinanceService {
 
     public Optional<Finance> findById(String id);
 
+    public Optional<Finance> findByIdAnimal(String id);
+
     public Finance save(FinanceDto financeDto);
 
     public void delete(String id);

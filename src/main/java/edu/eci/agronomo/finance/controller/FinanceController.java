@@ -37,6 +37,17 @@ public class FinanceController {
         }
     }
 
+    //Get Finance by ID animal
+    @GetMapping("/animal/{id}")
+    public ResponseEntity<Finance> getFinanceByIdAnimal(@PathVariable String id) {
+        Optional<Finance> finance = financeService.findByIdAnimal(id);
+        if (finance.isPresent()) {
+            return ResponseEntity.ok(finance.get());
+        } else {
+            throw new FinanceNotFoundException(id);
+        }
+    }
+
     // Create a new finance
     @PostMapping
     public ResponseEntity<Finance> createFinance(@RequestBody FinanceDto financeDto) {

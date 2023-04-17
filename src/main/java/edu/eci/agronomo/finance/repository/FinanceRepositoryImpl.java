@@ -35,6 +35,13 @@ public class FinanceRepositoryImpl implements FinanceRepository {
     }
 
     @Override
+    public Optional<Finance> findByIdAnimal(String id) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("idAnimal").is(id));
+        return Optional.ofNullable(mongoTemplate.findOne(query, Finance.class));
+    }
+
+    @Override
     public Finance save(FinanceDto financeDto) {
         return mongoTemplate.save(new Finance(String.valueOf(ObjectId.get()), financeDto));
     }

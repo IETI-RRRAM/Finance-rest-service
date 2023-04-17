@@ -26,6 +26,11 @@ public class FinanceServiceImpl implements FinanceService {
     }
 
     @Override
+    public Optional<Finance> findByIdAnimal(String id) {
+        return financeRepository.findByIdAnimal(id);
+    }
+
+    @Override
     public Finance save(FinanceDto financeDto) {
         return financeRepository.save(financeDto);
     }
